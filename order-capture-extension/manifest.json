@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Order Capture",
+    "version": "0.0",
+    "description": "Захват и манипуляция с элементами на странице",
+
+    "permissions": [
+        "activeTab",
+        "storage"
+    ]
+}

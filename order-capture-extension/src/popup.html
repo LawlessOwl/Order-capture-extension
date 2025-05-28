@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order capture extension</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 10px;
+            width: 250px;
+        }
+        lable {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Настройки</h3>
+    <label>
+        Автоклик:
+        <input type="checkbox" id="autoclick" />
+    </label>
+
+    <label>
+        Интервал (сек):
+        <input type="number" id="click-interval" min="1" max="60" value="4" />
+    </label>
+
+    <button id="saveBtn">Сохранить</button>
+
+    <script type="module" src="./popup.js"></script>
+</body>
+</html>

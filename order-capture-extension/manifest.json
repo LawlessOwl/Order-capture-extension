@@ -1,25 +1,26 @@
 {
-    "manifest_version": 3,
-    "name": "Order Capture",
-    "version": "0.0.1",
-    "description": "Захват и манипуляция с элементами на странице",
-    "permissions": [
-        "scripting",
-        "tabs"
-    ],
-    "host_permissions": ["<all_urls>"],
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": "icon.png"
-    },
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["src/content.js"],
-            "run_at": "document_idle"
-        }
-    ]
+  "manifest_version": 3,
+  "name": "Order Capture",
+  "version": "0.0.2",
+  "description": "Захват и манипуляция с элементами на странице",
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
 }

@@ -26,7 +26,20 @@ const processOrders = () => {
   }
 }
 
-setInterval(() => {
-  clickIfBtnExist(".btn-success")
-  setTimeout(processOrders, 500)
-}, 4000)
+const startAutoclick = (interval) => {
+  if (intervalId) clearInterval(intervalId)
+
+  intervalId = setInterval(() => {
+    clickIfBtnExist(".btn-success")
+    setTimeout(processOrders, 500)
+  }, interval * 1000)  
+}
+
+chrome.storage.sync.get(["autoclick", "interval"], (result) => {
+  const enabled = result.autoclick ?? true
+  const interval = result.interval ?? 4
+
+  if (enabled) {
+    startAutoclick(interval)
+  }
+})

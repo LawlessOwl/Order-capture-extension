@@ -1,3 +1,5 @@
+let intervalId
+
 const clickIfBtnExist = (btnSelector) => {
   const btn = document.querySelector(btnSelector)
   if (btn) {
@@ -32,7 +34,7 @@ const startAutoclick = (interval) => {
   intervalId = setInterval(() => {
     clickIfBtnExist(".btn-success")
     setTimeout(processOrders, 500)
-  }, interval * 1000)  
+  }, interval * 1000)
 }
 
 chrome.storage.sync.get(["autoclick", "interval"], (result) => {

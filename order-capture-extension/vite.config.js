@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite';
-import { resolve } from "path"
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig({
   build: {
@@ -7,7 +8,7 @@ export default defineConfig({
       input: {
         content: resolve(__dirname, './src/content.js'),
         background: resolve(__dirname, './src/background.js'),
-        popup: resolve(__dirname, './src/popup.js')
+        popup: resolve(__dirname, './src/popup.js'),
       },
       output: {
         entryFileNames: '[name].js'
@@ -15,5 +16,23 @@ export default defineConfig({
     },
     outDir: 'dist',
     emptyOutDir: true
-  }
-});
+  },
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'manifest.json',
+          dest: '.'
+        },
+        {
+          src: 'src/popup.html',
+          dest: '.'
+        },
+         {
+          src: 'public/icon.png',
+          dest: '.'
+        }
+      ]
+    })
+  ]
+})
